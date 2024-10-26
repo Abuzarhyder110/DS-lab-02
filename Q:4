@@ -1,0 +1,47 @@
+#Write a C++ program to insert new ITEM  at given location LOC. print all the elements of the array.#include <iostream>
+using namespace std;
+
+int main() {
+    const int size = 6; 
+    int arr[size];     
+    int n;             
+
+    cout << "Enter the number of items (up to " << size - 1 << "): ";
+    cin >> n;
+
+    if (n >= size) {
+        cout << "Cannot enter more than " << size - 1 << " items." << endl;
+        return 1; // Exit if the input exceeds the size
+    }
+
+    cout << "Enter " << n << " numbers: ";
+    for (int i = 0; i < n; ++i) {
+        cin >> arr[i];
+    }
+
+    int newItem, loc;
+    cout << "Enter the new item to insert: ";
+    cin >> newItem;
+    cout << "Enter the location (0 to " << n << ") to insert the new item: ";
+    cin >> loc;
+
+    if (loc < 0 || loc > n) {
+        cout << "Invalid location!" << endl;
+        return 1;
+    }
+
+    for (int i = n; i > loc; --i) {
+        arr[i] = arr[i - 1];
+    }
+    arr[loc] = newItem; 
+    n++;               
+
+    cout << "Array after inserting the new item at location " << loc << ": ";
+    for (int i = 0; i < n; ++i) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+
