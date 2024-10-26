@@ -1,0 +1,44 @@
+#Write a C++ pr.ogram to insert new ITEM at Bottom of the array. Print all elements 
+of the array.
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    const int size = 5; 
+    int arr[size];     
+    int n;             
+
+    cout << "Enter the number of items (up to " << size << "): ";
+    cin >> n;
+
+    if (n > size) {
+        cout << "Cannot enter more than " << size << " items." << endl;
+        return 1; // Exit if the input exceeds the size
+    }
+
+    cout << "Enter " << n << " numbers: ";
+    for (int i = 0; i < n; ++i) {
+        cin >> arr[i];
+    }
+
+    int newItem;
+    cout << "Enter the new item to insert at the bottom: ";
+    cin >> newItem;
+
+    if (n < size) {
+        arr[n] = newItem; 
+        n++;             
+    } else {
+        cout << "Array is full. Cannot insert the new item." << endl;
+        return 1; 
+    }
+
+    cout << "Array after inserting the new item at the bottom: ";
+    for (int i = 0; i < n; ++i) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
