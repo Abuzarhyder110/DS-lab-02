@@ -1,0 +1,40 @@
+#Write a C++ program to insert new ITEM at top of the array. Print all the elements of the array.
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    const int size = 5;
+    int arr[size + 1]; 
+    int n;             
+
+    cout << "Enter the number of items (up to " << size << "): ";
+    cin >> n;
+
+    if (n > size) {
+        cout << "Cannot enter more than " << size << " items." << endl;
+        return 1; // Exit if the input exceeds the size
+    }
+
+    cout << "Enter " << n << " numbers: ";
+    for (int i = 0; i < n; ++i) {
+        cin >> arr[i];
+    }
+
+    int newItem;
+    cout << "Enter the new item to insert at the top: ";
+    cin >> newItem;
+
+    for (int i = n; i > 0; --i) {
+        arr[i] = arr[i - 1];
+    }
+    arr[0] = newItem; 
+
+    cout << "Array after inserting the new item at the top: ";
+    for (int i = 0; i <= n; ++i) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
